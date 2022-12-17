@@ -1,0 +1,64 @@
+@import './color.scss';
+@import './responsive.scss';
+
+.app {
+    display: flex;
+
+    nav {
+        padding: 0 10px;
+        width: 200px;
+        overflow: hidden;
+    }
+    
+    contents {
+        width:calc(100% - 225px);
+        overflow: auto;
+        /* border-left: 1px solid #d5d5d5; */
+        border-left: 5px solid red;
+
+        Footer {
+            height: 10vh;
+        }
+    }
+}
+
+
+@include xs {
+    .app {
+        nav {
+            display: none;
+        }
+    }
+}
+
+@include sm {
+    .app {
+        nav {
+            visibility: visible;
+        }
+    }
+}
+
+@include md {
+    .app {
+        nav {
+            visibility: visible;
+        }
+    }
+}
+
+@include lg {
+    .app {
+        nav {
+            visibility: visible;
+        }
+    }
+}
+
+@include xl {
+    .app {
+        nav {
+            visibility: visible;
+        }
+    }
+}
