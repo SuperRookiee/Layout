@@ -1,19 +1,18 @@
 import React from "react";
 import styled from 'styled-components';
 import Menu from './component/Menu';
-import blank_profile from '../asset/img/blank_profile.png';
-import nav from '../asset/scss/Navbar.module.scss';
+import nav from '../asset/scss/Navbar.module.scss'
 
 const NavbarContainer = styled.nav`
+    display : ${ props => props.open };
+    position: absolute;
     flex-direction: column;
     align-items: center;
     width: 200px;
-    display: flex;
     height: 100vh;
-
-    section {
-        border-bottom: 1px solid black;
-    }
+    z-index: 10;
+    background-color: white;
+    border: 1px solid black;
 `;
 
 const Logo = styled.section`
@@ -25,17 +24,12 @@ const Logo = styled.section`
     text-align: center;
 `;
 
-const ProfileContainer = styled.section`
-    width: 100%;
-    height: 70px;
-`;
-
 const MenuContainer = styled.section`
     width: 100%;
-    display: flex;
     flex-direction: column;
     font-size: x-large;
     padding: 30px 0;
+    display: inline-flex;
 `;
 
 const Info = styled.section`
@@ -43,24 +37,24 @@ const Info = styled.section`
 `;
 
 const menu = [
-    { name: "Main", path: "/" },
-    { name: "Music", path: "/music" },
-    { name: "Movie", path: "/Movie" },
-    { name: "Game", path: "/game"}
+    { name: "Home", path: "/" },
+    { name: "Info", path: "/info" }
 ];
 
-const Navbar = () => {
+const Navbar = (props) => {
+    if(props.open === true) {
+        var display = 'none';
+    }
+    else {
+        var display = 'block';
+    }
 
     return (
-        <NavbarContainer>
+        <NavbarContainer open={display}>
             <Logo>Rookie</Logo>
-            <ProfileContainer>
-                <img src={blank_profile} className={nav.profile} alt={blank_profile}/>
-                HyunWook.Go
-            </ProfileContainer>
-            <MenuContainer>
+            <MenuContainer className={nav.menu}>
                 {menu.map((menu, i) => {
-                    return ( <Menu name={menu.name} path={menu.path}/> );
+                    return ( <Menu name={menu.name} path={menu.path} key={i}/> );
                 })}
             </MenuContainer>
             <Info className={nav.info}>

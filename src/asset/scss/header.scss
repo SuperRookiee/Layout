@@ -1,0 +1,36 @@
+$degree: 45deg; //기울기 정도
+
+.switch {
+    padding: 22px 0;
+    .top,
+    .bottom {
+        &:before {
+            position: absolute;
+            left: 20px;
+            width: 40px;
+            height: 5px;
+            content: '';
+            background-color: black;
+        }
+    }
+
+    .top{
+        &:before {
+            transform: rotate(-1*$degree);
+        }
+        &.switched::before{
+            margin-top: -5px;
+            transform: rotate(0*$degree);
+        }
+    }
+    
+    .bottom {
+        &:before {
+            transform: rotate(1*$degree);
+        }
+        &.switched::before{
+            margin-top: 10px;
+            transform: rotate(0*$degree);
+        }
+    }
+}
