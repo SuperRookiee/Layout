@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import Menu from './component/Menu';
+import Menu from '../component/Menu';
 import nav from '../asset/scss/Navbar.module.scss'
 
 const NavbarContainer = styled.nav`
